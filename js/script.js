@@ -53,5 +53,5 @@ function removeSelected(data){
     }
 }
 
-getData("https://maxime-belleuvre.github.io/SDR/json/class.json")
+getData("./json/class.json")
 
