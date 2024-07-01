@@ -164,9 +164,24 @@ article{
     border-radius: 1rem;
 }
 
-.btn-sumitClass{
+.btn__sumitClass{
     position: absolute;
     bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn__sumitClass__alerte{
+    color: red;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.btn__sumitClass__alerte.active{
+    display: block;
 }
 
 .team__ban--text{
