@@ -56,5 +56,8 @@ function removeSelected(data){
     }
 }
 
-getData("/json/class.json");
+function banClass(arr){
+
+}
+getData("SDR/json/class.json");
 
