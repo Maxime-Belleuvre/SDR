@@ -137,6 +137,8 @@ function banClass(arr1,arr2,pick,data){
     if(pick.length === 4){
         resetBanStyle(data)
         document.getElementById("playerSelect").textContent = "Début du combat";
+        document.getElementById("playerSelect").classList.add("active");
+
     }
     document.getElementById("btnSumitClassAlerte").classList.remove("active");
 }

@@ -194,3 +194,8 @@ article{
     top: 40%;
     font-size: 3rem;
 }
+
+.listClass__select.active{
+    color: red;
+    font-size: 5rem;
+}
