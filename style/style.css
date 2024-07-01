@@ -73,15 +73,18 @@ article{
     border-left: 0.2rem solid var(--cream);
     border-right: 0.2rem solid var(--cream);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-
 }
 
 .listClass__class{
     margin: 1rem;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     
 }
 .listClass__class.classBan .listClass__class--name{
@@ -94,6 +97,20 @@ article{
     content: '';
     background-color: var(--smoky);
     opacity: 60%;
+    z-index: 2;
+    width : 8rem;
+    height: 8rem;
+}
+.listClass__class.classPick .listClass__class--name{
+    opacity: 60%;
+}
+.listClass__class.classPick div::before{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: '';
+    background-color: green;
+    opacity: 40%;
     z-index: 2;
     width : 8rem;
     height: 8rem;
@@ -156,3 +173,9 @@ article{
     color: var(--cream);
 }
 
+.listClass__select{
+    color: var(--cream);
+    position: absolute;
+    top: 40%;
+    font-size: 3rem;
+}

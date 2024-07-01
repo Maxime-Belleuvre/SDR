@@ -8,6 +8,7 @@ function getData(url){
         createClassList(data.class);
         let banTeam1 =[];
         let banTeam2 =[];
+        let pick =[];
 
         for(let i = 0; i < data.class.length; i++){
             let idClass = document.getElementById(i+1);
@@ -18,7 +19,7 @@ function getData(url){
                 
             })
         }
-        document.getElementById("btnSubmitClass").addEventListener("click",()=> banClass(banTeam1,banTeam2,data.class))
+        document.getElementById("btnSubmitClass").addEventListener("click",()=> banClass(banTeam1,banTeam2,pick,data.class))
     })
 }
 
@@ -59,37 +60,111 @@ function resetBanStyle(data){
         document.getElementById(i).classList.remove("classBan");
     }
 }
-function banClass(arr1,arr2,data){
-    resetBanStyle(data);
-    if(arr1.length<=arr2.length){
+function banClass(arr1,arr2,pick,data){
 
+
+    
+    if(arr1.length >= 3 && arr2.length >= 3){
+        console.log("coucou");
+        
+        
+        if(pick.length === 0 || pick.length === 3){
+            console.log("coucou");
+            resetBanStyle(data);
+            arr2.push(document.querySelector(".selected").getAttribute("id"))
+                arr1.forEach(element =>{
+                    
+                if(document.getElementById(element)){
+                    document.getElementById(element).classList.add("classBan");
+                    }
+                })
+                
+        }else if(pick.length === 1){
+            console.log("aurevoir");
+            resetBanStyle(data);
+            arr1.push(document.querySelector(".selected").getAttribute("id"))
+                arr1.forEach(element =>{
+  
+                if(document.getElementById(element)){
+                    document.getElementById(element).classList.add("classBan");
+                    }
+                })
+                
+        }else{
+            resetBanStyle(data);
+            arr1.push(document.querySelector(".selected").getAttribute("id"))
+            arr2.forEach(element =>{
+                    
+                if(document.getElementById(element)){
+                    document.getElementById(element).classList.add("classBan");
+                    }
+                })
+           
+        }
+        pick.push(document.querySelector(".selected").getAttribute("id"))
+        document.getElementById("playerSelect").textContent = `Au joueur ${pick.length+1} de PICK`;
+        for(let i=1; i<pick.length+1; i++) {   
+            document.getElementById(`player${i}Img`).src = data[pick[i-1]-1].url;
+           
+ 
+        }
+        
+    }
+    
+
+    if( arr1.length < 4 && arr2.length < 4){
+
+        if(arr1.length<=arr2.length){
+            resetBanStyle(data);
+            document.getElementById("playerSelect").textContent = "A l'équipe 2 de BAN";
+            arr2.forEach(element =>{
+                if(document.getElementById(element)){
+                    document.getElementById(element).classList.add("classBan");
+                }
+            })
+            arr1.push(document.querySelector(".selected").getAttribute("id")) 
+        }else{
+            document.getElementById("playerSelect").textContent = "A l'équipe 1 de BAN";
+            
+            resetBanStyle(data);
+            arr1.forEach(element =>{
+                if(document.getElementById(element)){
+                    document.getElementById(element).classList.add("classBan");
+                }
+            })
+            arr2.push(document.querySelector(".selected").getAttribute("id"))
+        }
+    
+    if(arr2.length === 3){
+        resetBanStyle(data);
+        document.getElementById("playerSelect").textContent = `Au joueur 1 de PICK`;
         arr2.forEach(element =>{
-            console.log(document.getElementById(element));
+                    
             if(document.getElementById(element)){
                 document.getElementById(element).classList.add("classBan");
-            }
-        })
-        arr1.push(document.querySelector(".selected").getAttribute("id")) 
-    }else{
-        arr1.forEach(element =>{
-            if(document.getElementById(element)){
-                document.getElementById(element).classList.add("classBan");
-            }
-        })
-        arr2.push(document.querySelector(".selected").getAttribute("id"))
+                }
+            })
     }
 
 
 
-    for(let i=1;i<arr1.length+1;i++){
-        document.getElementById(`team1Emplacement${i}`).src = data[arr1[i-1]-1].url;
+
+
+
+
+        for(let i=1;i<arr1.length+1;i++){
+            document.getElementById(`team1Emplacement${i}`).src = data[arr1[i-1]-1].url;
+        }
+        for(let i=1;i<arr2.length+1;i++){
+            document.getElementById(`team2Emplacement${i}`).src = data[arr2[i-1]-1].url;
+        }
     }
-    for(let i=1;i<arr2.length+1;i++){
-        document.getElementById(`team2Emplacement${i}`).src = data[arr2[i-1]-1].url;
-    }
+    
+
     removeSelected(data)
-
-    console.log(arr1,arr2);
+    if(pick.length === 4){
+        document.getElementById("playerSelect").textContent = "Début du combat";
+    }
 }
 
 

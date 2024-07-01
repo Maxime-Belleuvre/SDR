@@ -19,6 +19,26 @@
         "id": 4,
         "name" : "démoniste",
         "url" : "images/lock.png"
+    },
+    {
+        "id": 5,
+        "name" : "URAKEN !!!",
+        "url" : "images/uraken.jpeg"
+    },
+    {
+        "id": 6,
+        "name" : "Gandalf le chauve",
+        "url" : "images/Gandalf.jpeg"
+    },
+    {
+        "id": 7,
+        "name" : "druide",
+        "url" : "images/chat.jpeg"
+    },
+    {
+        "id": 8,
+        "name" : "chevalier",
+        "url" : "images/chevalier.jpeg"
     }
     ]
 }
