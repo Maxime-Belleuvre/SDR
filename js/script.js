@@ -53,5 +53,5 @@ function removeSelected(data){
     }
 }
 
-getData("./json/class.json")
+getData("./json/class.json");
 
