@@ -7,6 +7,9 @@ function getData(url){
     .then(data => {
         console.log(data.class);
         createClassList(data.class);
+        let banTeam1 =[];
+        let banTeam2 =[];
+
         for(let i = 0; i < data.class.length; i++){
             let idClass = document.getElementById(i+1);
             console.log(idClass)
@@ -53,5 +56,5 @@ function removeSelected(data){
     }
 }
 
-getData("./json/class.json");
+getData("/json/class.json");
 
