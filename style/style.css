@@ -81,6 +81,22 @@ article{
 
 .listClass__class{
     margin: 1rem;
+    position: relative;
+    
+}
+.listClass__class.classBan .listClass__class--name{
+    opacity: 60%;
+}
+.listClass__class.classBan div::before{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: '';
+    background-color: var(--smoky);
+    opacity: 60%;
+    z-index: 2;
+    width : 8rem;
+    height: 8rem;
 }
 
 .listClass__class.selected{
@@ -88,6 +104,7 @@ article{
 }
 
 .listClass__class--img{
+    z-index: 0;
     width : 8rem;
     height: 8rem;
 }
@@ -106,6 +123,11 @@ article{
     justify-content: space-evenly;
     align-items: center;
     width: 80%;
+}
+
+.team__ban--team2{
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .team__ban--emplacement{
@@ -129,3 +151,8 @@ article{
     position: absolute;
     bottom: 2rem;
 }
+
+.team__ban--text{
+    color: var(--cream);
+}
+

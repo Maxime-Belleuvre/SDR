@@ -1,18 +1,22 @@
 {
     "class": [
     {
+        "id": 1,
         "name" : "pretre",
         "url" : "images/pretre.png"
     },
     {
+        "id": 2,
         "name" : "guerrier",
         "url" : "images/guerrier.png"
     },
     {
+        "id": 3,
         "name" : "chasseur",
         "url" : "images/hunter.png"
     },
     {
+        "id": 4,
         "name" : "démoniste",
         "url" : "images/lock.png"
     }
