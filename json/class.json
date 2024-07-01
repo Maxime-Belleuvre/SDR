@@ -2,19 +2,19 @@
     "class": [
     {
         "name" : "pretre",
-        "url" : "/images/pretre.png"
+        "url" : "images/pretre.png"
     },
     {
         "name" : "guerrier",
-        "url" : "/images/guerrier.png"
+        "url" : "images/guerrier.png"
     },
     {
         "name" : "chasseur",
-        "url" : "/images/hunter.png"
+        "url" : "images/hunter.png"
     },
     {
         "name" : "démoniste",
-        "url" : "/images/lock.png"
+        "url" : "images/lock.png"
     }
     ]
 }
