@@ -21,14 +21,33 @@ function getData(url){
                     
                     document.getElementById("btnSumitClassAlerte").classList.add("active");
                 }
-                
-                
+ 
             })
         }
         document.getElementById("btnSubmitClass").addEventListener("click",()=> banClass(banTeam1,banTeam2,pick,data.class))
+
+        
     })
 }
 
+document.getElementById("player1Dead").addEventListener("click",() => killPlayer(1));
+document.getElementById("player2Dead").addEventListener("click",() => killPlayer(2));
+document.getElementById("player3Dead").addEventListener("click",() => killPlayer(3));
+document.getElementById("player4Dead").addEventListener("click",() => killPlayer(4));
+function killPlayer(id){
+    document.getElementById(`crossImgPllayer${id}`).classList.toggle("active");
+    if( id === 1 || id ===2){
+        if(document.getElementById(`crossImgPllayer${id+2}`).classList == "crossImg active"){
+            console.log("coucou 3");
+            document.getElementById("textAmbiance").textContent = `Défaite de l'équipe du Jouer ${id}`
+        }
+    }else{
+        if(document.getElementById(`crossImgPllayer${id-2}`).classList == "crossImg active"){
+            document.getElementById("textAmbiance").textContent = `Défaite de l'équipe du Jouer ${id}`
+        }
+    }
+    
+}
 
 function createClassList(data){
     data.forEach(element => {
@@ -136,8 +155,11 @@ function banClass(arr1,arr2,pick,data){
     removeSelected(data)
     if(pick.length === 4){
         resetBanStyle(data)
-        document.getElementById("playerSelect").textContent = "Début du combat";
-        document.getElementById("playerSelect").classList.add("active");
+        document.getElementById("textAmbiance").textContent = "Début du combat";
+        document.getElementById("textAmbiance").classList.add("active");
+        document.getElementById("listClass").classList.remove("active");
+        document.querySelectorAll(".deadPlayer").forEach(element =>{ element.classList.add("active")})
+
 
     }
     document.getElementById("btnSumitClassAlerte").classList.remove("active");

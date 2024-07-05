@@ -58,12 +58,77 @@ article{
     background-color: var(--smoky);
     height: 4rem;
     width: 4rem;
+
+}
+
+.crossImg{
+    position: relative;
+    height: 4rem;
+    width: 4rem;
     margin: 0 1rem;
+    background-color: blue;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.crossImg::before{
+    content: "";
+    position: absolute;
+    opacity: 0%;
+    width: 0.3rem;
+    height: 5.5rem;
+    rotate: 45deg;
+    background-color: red;
+    z-index: 2;
+    top: -76px;
+    left: 94px;
+    transition: all 1s ease-in-out;
+}
+.crossImg.active::before{
+    opacity: 100%;
+    top: -12px;
+    left: 30px;
+}
+.crossImg::after{
+    content: "";
+    position: absolute;
+    opacity: 0%;
+    rotate: -45deg;
+    width: 0.3rem;
+    height: 5.5rem;
+    background-color: red;
+    z-index: 2;
+    top: -76px;
+    left: -34px;
+    transition: all 1s ease-in-out;
+}
+.crossImg.active::after{
+    opacity: 100%;
+    top: -12px;
+    left: 30px;
 }
 
 .player__name{
     color: var(--cream);
 }
+
+.pageCenter{
+    display: flex !important;
+    align-items: center !important;    
+}
+
+.pageCenter__ambiance{
+    color: var(--cream);
+    font-size: 5rem;
+    display: none;
+
+}
+
+
+.pageCenter__ambiance.active{
+    display: block;
+}
+
 
 
 .listClass{
@@ -72,10 +137,13 @@ article{
     height: 100%;
     border-left: 0.2rem solid var(--cream);
     border-right: 0.2rem solid var(--cream);
-    display: flex;
+    display: none;
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
+}
+.listClass.active{
+    display: flex;
 }
 
 .listClass__class{
@@ -195,7 +263,19 @@ article{
     font-size: 3rem;
 }
 
-.listClass__select.active{
-    color: red;
-    font-size: 5rem;
+.deadPlayer{
+    background-color: red;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    display: none;
+}
+
+.deadPlayer.active{
+    display: block;
+}
+
+.teamName{
+    color:var(--cream);
+    font-size: 3rem;
 }
